@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual enviroment
+enviroment/
+
+# Private token and authentication files
+*.env
+*.pem
+
+# Log files
+*.log
