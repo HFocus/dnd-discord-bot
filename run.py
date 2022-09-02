@@ -65,7 +65,7 @@ def reload_extensions():
 def main():
     # Whether to deploy to testing bot or main bot (defaults to testing)
     token = models.ENVs.DEBUG_TOKEN
-    if sys.argv[0] == 'deploy':
+    if sys.argv[1] == 'deploy':
         token = models.ENVs.TOKEN
 
     # Run Pycord Bot until keyboard interrupt
