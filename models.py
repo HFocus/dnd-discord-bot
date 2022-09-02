@@ -27,6 +27,7 @@ dotenv.load_dotenv("static/.env")  # load all the variables from the .env file
 class ENVs(Enum):
     """Defines env variables that should be present in a .env file accessable to the script """
     TOKEN = "TOKEN"
+    DEBUG_TOKEN = "DEBUG_TOKEN"
     DEBUG_GUILD = "DEBUG_GUILD"
     MONGODB_URI = "MONGODB_URI"
     MONGODB_CERT_PATH = "MONGODB_CERT_PATH"
