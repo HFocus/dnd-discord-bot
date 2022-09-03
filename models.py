@@ -28,7 +28,7 @@ class ENVs(Enum):
     """Defines env variables that should be present in a .env file accessable to the script """
     TOKEN = "TOKEN"
     DEBUG_TOKEN = "DEBUG_TOKEN"
-    DEBUG_GUILD = "DEBUG_GUILD"
+    DEBUG_GUILDS = "DEBUG_GUILDS"
     MONGODB_URI = "MONGODB_URI"
     MONGODB_CERT_PATH = "MONGODB_CERT_PATH"
 
@@ -43,6 +43,5 @@ def get_env_safe(key: ENVs):
         value of the enviromental variable
     """
     value = os.getenv(key.value)
-    assert(
-        value is not None), f'Can\'t find token \"{key.value}\" and/or \".env\"'
+    assert(value is not None), f'Can\'t find token \"{key.value}\" and/or \".env\"'
     return value

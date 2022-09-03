@@ -25,8 +25,8 @@ import models
 
 logging.basicConfig(level=logging.INFO, filename='discord.log',
                     filemode='w', format='date+time:%(asctime)s | %(message)s')
-DEBUG_GUILD = models.get_env_safe(models.ENVs.DEBUG_GUILD)
-bot = discord.Bot(debug_guilds=[DEBUG_GUILD])
+DEBUG_GUILDS = models.get_env_safe(models.ENVs.DEBUG_GUILDS).split(',')
+bot = discord.Bot(debug_guilds=DEBUG_GUILDS)
 extensions = [
     "loot"
 ]
@@ -41,7 +41,7 @@ async def on_ready():
         logging.info(f'{guild}|{guild.id}')
 
 
-@bot.slash_command(guild_ids=[DEBUG_GUILD])
+@bot.slash_command(guild_ids=DEBUG_GUILDS)
 async def refresh(ctx):
     reload_extensions()
     await ctx.respond("Refreshed extensions!")
