@@ -1,5 +1,4 @@
 '''
-
 Copyright (C) 2022 Keenan Buckley
 
 This file is part of {PROJECT_NAME}.
@@ -29,10 +28,12 @@ class Loot(commands.Cog):
         self.bot = bot
 
     @loot.command(description="Splits a pile of coins into equal parts")
-    async def split(self, ctx, parts: int, gp: int, sp: int, cp: int):
+    async def split(self, ctx, parts: int, pp: int, gp: int, ep: int, sp: int, cp: int):
         """Splits a pile of coins into equal parts"""
-        response = f'Splitting {gp} gp, {sp} sp, {cp} cp into {parts} parts, we get:\n'
+        response = f'Splitting {pp} pp, {gp} gp, {ep} ep, {sp} sp, {cp} cp into {parts} parts, we get:\n'
+        response += f'{int(pp/parts)} pp with {pp % parts} pp left over\n'
         response += f'{int(gp/parts)} gp with {gp % parts} gp left over\n'
+        response += f'{int(ep/parts)} ep with {ep % parts} ep left over\n'
         response += f'{int(sp/parts)} sp with {sp % parts} sp left over\n'
         response += f'{int(cp/parts)} cp with {cp % parts} cp left over\n'
         await ctx.respond(response)
